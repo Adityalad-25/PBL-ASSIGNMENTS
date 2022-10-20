@@ -1,0 +1,140 @@
+/******************************************************************************
+PBL-GROUP A (Q1):-Define a class to represent a bank account which includes the following 
+members as:
+Data members:
+a. Name of the depositor
+b. Account Number
+c. Withdrawal amount
+d. Balance amount in the account Member Functions:
+e. To assign initial values
+f. To deposit an amount
+g. To withdraw an amount after checking the balance
+h. To display name and balance.
+Implement the program by using features of OOP in C++.
+*******************************************************************************/
+#include <iostream>
+using namespace std;
+class bank
+{
+    private:
+             string name;
+             int acc_no;
+             int withdraw_amt;
+             int balance;
+       
+             
+           
+    public:
+            
+            //default constructor//
+            bank()
+            {
+             name="*";
+             acc_no=0;
+             withdraw_amt=0;
+             balance=0;
+             
+            }
+            void accept()
+            {
+                cout<<"enter details as instructed :"<<endl;
+                cout<<"enter name of account holder= ";
+                cin>>name;
+                cout<<"enter account no of account holder= ";
+                cin>>acc_no;
+                cout<<"enter balance of account holder = ";
+                cin>>balance;
+            }
+            void deposit()
+            {
+                int amt;
+                cout<<"enter amount to deposit = ";
+                cin>>amt;
+                balance = balance + amt;
+            }
+            void withdraw()
+            {
+                 cout<<"enter amount to withdraw = ";
+                 cin>>withdraw_amt;
+                if( balance > withdraw_amt)
+                {
+                   balance=balance - withdraw_amt;
+                }
+                else
+                 cout<<"Not enough balance to withdraw amount !"<<endl;
+            }
+            void display()
+            {
+                cout<<"Name= "<<name<<endl;
+                cout<<"Balance= "<<balance<<endl;
+            }
+            
+            
+             
+             
+             
+             
+};
+int main()
+{
+   bank b[100];
+   int ch,n; 
+//   b.accept();
+   cout<<"Enter number of people whose account you want open : ";
+   cin>>n;
+
+   cout<<"enter the operation you want to perform "<<endl;
+   cout<<"1.TO ACCEPT ACCOUNT HOLDERS DATA"<<endl;
+   cout<<"2.TO DEPOSIT AMOUNT "<<endl;
+   cout<<"3.TO WITHDRAW AMOUNT"<<endl;
+//   cout<<"3.TO DISPLAY DATA"<<endl;
+   cout<<"Please input your choice: ";
+   cin>>ch;
+  
+      
+    switch(ch)
+   {
+      case 1:
+      {
+           for(int i=0; i<n;i++)
+           {  
+              b[i].accept();
+              b[i].display();
+              
+           }
+         break;
+
+      }
+        case 2:
+       {
+          for(int i=0; i<n;i++)
+          {
+             b[i].deposit();
+             b[i].display();
+          }
+           break;
+       }
+        case 3:
+       {
+            for(int i=0; i<n;i++)
+          {
+            b[i].withdraw();
+            b[i].display();
+            
+          }
+          break;
+       }
+       
+       default :
+       {
+           cout<<"Enter valid choice ";
+       }
+   }
+    
+//   b.accept();
+//   b.deposit();
+//   b.withdraw();
+//   b.display();
+
+    return 0;
+}
