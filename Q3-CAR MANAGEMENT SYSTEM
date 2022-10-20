@@ -1,0 +1,221 @@
+/******************************************************************************
+Consider we want to store the information of different vehicles.
+Create a class named Vehicle with two data member named mileage and price. Create its two
+subclasses:
+*Car with data members to store ownership cost, warranty (by years), seating capacity and fuel type
+(diesel or petrol).
+*Bike with data members to store the number of cylinders, number of gears, cooling type(air, liquid or
+oil), wheel type(alloys or spokes) and fuel tank size(in inches).
+Make another two subclasses Audi and Ford of Car, each having a data member to store the model type.
+Next, make two subclasses Bajaj and TVS, each having a data member to store the make-type. Now,
+store and print the information of an Audi and a Ford car (i.e. model type, ownership cost, warranty,
+seating capacity, fuel type, mileage and price.).
+
+*******************************************************************************/
+#include <iostream>
+using namespace std;
+class vehicle
+{
+   private:
+            int mil;
+            float price;
+    public:
+            
+            //default constructor// 
+            vehicle()
+             {
+                 mil=0;
+                 price=0;
+             }
+             void accept_v()
+             {
+                 cout<<"milege=";
+                 cin>>mil;
+                 cout<<"price=";
+                 cin>>price;
+             }
+             void display_v()
+             {
+                 cout<<"milege= "<<mil<< " " <<"price= "<<price<<endl;
+             }
+};
+class car:public vehicle
+{
+    private:
+             float own_cost;
+             int warr,sea_capa;
+             string fuel_type;
+    public:
+             
+             //default constructor//
+             car()
+             {
+                 own_cost=0.0;
+                 warr=sea_capa=0;
+                 fuel_type="**";
+                  
+             }
+             
+             void accept_c()
+             {
+                cout<<"enter ownershipcost= ";
+                cin>>own_cost;
+                cout<<"enter warranty in years = ";
+                cin>>warr;
+                cout<<"enter seat capacity = ";
+                cin>>sea_capa;
+                cout<<"enter fuel type (petrol or disel)=";
+                cin>>fuel_type;
+                
+             }
+             void display_c()
+             {
+                cout<<"ownershipcost= "<<own_cost<<"  "<<"warranty in years = "<<warr<<"  "<<"seat capacity = "<<sea_capa<<"  "<<"fuel type (petrol or disel)="<<fuel_type<<endl;
+             }
+             
+             
+};
+class bike:public vehicle
+{
+    private:
+             int no_cyl,no_gears;    
+              float tank_size;
+              string wheel,cool_typ;
+    public:
+             //default constructor//
+              bike()
+              {
+                  no_cyl,no_gears=0;
+                  tank_size=0.0;
+                  wheel="*";
+                  cool_typ="*";
+                  
+              }
+             void accept_b()
+             {
+                cout<<"enter no of cylinders = ";
+                cin>>no_cyl;
+                cout<<"enter no of gears = ";
+                cin>>no_gears;
+                cout<<"enter size of tank in(inches) = ";
+                cin>>tank_size;
+                cout<<"enter wheel type (alloys or spokes )=";
+                cin>>wheel;
+                cout<<"enter wheel type cooling type(air, liquid or oil) = ";
+                cin>>cool_typ;
+                                                                      
+             }
+             
+};   
+
+class audi:public car
+{
+    private: 
+              string model_a;
+    public:
+           //default constructor//
+            audi()
+            {
+                model_a="*";
+            }
+            void accept_audi()
+            {
+                cout<<"enter model no= ";
+                cin>>model_a;
+            }
+            void display_audi()
+            {
+                cout<<"MODEL NO OF AUDI IS = "<<model_a;
+            }
+};
+
+class ford:public car
+{
+    private: 
+              string model_f;
+    public:
+           //default constructor//
+            ford()
+            {
+                model_f="*";
+            }
+             void accept_ford()
+            {
+                cout<<"enter model no= ";
+                cin>>model_f;
+            }
+            void display_ford()
+            {
+                cout<<"MODEL NO OF FORD IS = "<<model_f;
+            }
+};
+ 
+class bajaj : public bike
+{
+    
+};
+class tvs : public bike
+{
+    
+};
+
+int main()
+{
+//     audi a; ford f;
+  
+//   cout<<"for audi : "<<endl;
+//     a.accept_audi();
+//     a.accept_c();
+//     a.accept_v();cout<<endl;
+//     a.display_audi();cout<<endl;
+//     a.display_c();
+//     a.display_v();
+//  cout<<"for ford : "<<endl;
+//     f.accept_ford();
+//     f.accept_c();
+//     f.accept_v();cout<<endl;
+//     f.display_ford();cout<<endl;
+//     f.display_c();
+//     f.display_v();
+ 
+   audi a; ford f;
+    
+    int ch;
+    cout<<"Enter CAR U WANT TO KNOW ABOUT "<<endl;
+    cout<<"1:- FOR AUDI "<<endl;
+    cout<<"2:- FOR FORD "<<endl;
+    cin>>ch;
+    switch(ch)
+    {
+        case 1:
+        {
+           
+              a.accept_audi();
+              a.accept_c();
+              a.accept_v();cout<<endl;
+              a.display_audi();cout<<endl;
+              a.display_c();
+              a.display_v();
+        }
+        case 2:
+        {
+               f.accept_ford();
+                f.accept_c();
+                f.accept_v();cout<<endl;
+               f.display_ford();cout<<endl;
+                 f.display_c();
+               f.display_v();
+        } 
+        default :
+        {
+            cout<<"enter valid option"<<endl;
+            
+        }
+        
+    }
+    
+    
+    return 0;
+}
+
+
