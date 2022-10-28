@@ -1,0 +1,276 @@
+/******************************************************************************
+
+Write a program using C++ to create a student database system containing the following
+
+information: Name, roll number, Class, division, Date of Birth, Blood group, Contact address,
+
+telephone number. Use Class, object, inline function. Use static variables and static functions
+
+to maintain count of the number of students. Use constructor and destructor.
+
+Note:
+
+I Instructor will suggest students to identify the use of inline function, static variables
+
+and static functions for their application to be developed as a part of PBL-I project.
+
+II Instructor will suggest students to implement identified OOP features for their
+
+application to be developed as a part of PBL-I project.
+
+III Instructor will suggest students to implement Constructor and Destructor in all classes of their selected
+
+applications.
+
+*******************************************************************************/
+
+#include <iostream>
+
+using namespace std;  
+
+// //using inline function //
+
+// inline int getdob(int d,int m,int yyyy)
+
+// {
+
+//     cout<<d<<"-"<<m<<"-"<<yyyy<<endl;
+
+//     return ;
+
+// }
+
+class student
+
+{
+
+    private: 
+
+              string name,con_address;
+
+              int roll;
+
+              int clas_s;
+
+              string division,blood_group;
+
+            //   int d,m,yyyy;
+
+            int dob;
+
+              long tele_no;
+
+              static int count; // declaring static variable to count no of students //
+
+         
+
+        //   static int count;
+
+    public:
+
+            // default Constructor //
+
+            student()
+
+            {
+
+               name=con_address="*";
+
+               roll=0;
+
+               clas_s=0;
+
+               division,blood_group="*";
+
+              dob=0;
+
+            //   d=m=yyyy=0;
+
+               tele_no=0;
+
+               count++;
+
+               //cout<<count++ <<endl; //becuz as soon student object is created it will give us count of student//
+
+              
+
+            }
+
+            // destructor //
+
+            ~student()
+
+            {
+
+              count-- ; //becuz as soon student is deleted from list it will give us count of student//
+
+            
+
+            }
+
+            
+
+        //   void getdob(int a,int bb, int cccc)
+
+        //   { 
+
+        //       d=a;mm=bb;yyyy=cccc;
+
+               
+
+               
+
+        //   }
+
+            void getdata()
+
+            {
+
+                cout<<"Enter name of student = ";
+
+                cin>>name;
+
+                cout<<"Enter Contact Address of student = ";
+
+                cin>>con_address;
+
+                cout<<"Enter Roll no of student = ";
+
+                cin>>roll;
+
+                cout<<"Enter class of student = ";
+
+                cin>>clas_s;
+
+                cout<<"Enter Division of student = ";
+
+                cin>>division;
+
+                cout<<"Enter Blood group of student = ";
+
+                cin>>blood_group;
+
+                cout<<"Enter DOB of student = ";
+
+                cin>>dob;
+
+                cout<<"Enter Telephone number of student = ";
+
+                cin>>tele_no;
+
+                
+
+                
+
+            }
+
+            
+
+            void displaydata()
+
+            {
+
+                
+
+                cout<<"Name of student = "<<name<<endl;
+
+                cout<<"Contact Address of student = "<<con_address<<endl;
+
+                cout<<"Roll no of student = "<<roll<<endl;
+
+                cout<<"Class of student = "<<clas_s<<endl;
+
+                cout<<"Division of student = "<<division<<endl;
+
+                cout<<"Blood group of student = "<<blood_group<<endl;
+
+                cout<<"DOB of student = "<<dob<<endl;
+
+                cout<<"Telephone number of student = "<<tele_no<<endl;
+
+               
+
+            }
+
+         
+
+        void show_no_students()
+
+        {
+
+          cout<<"No of students = "<<count<<endl;;   
+
+        }
+
+};
+
+ int student :: count=0; //defining static variable//
+
+int main()
+
+{
+
+  student s;
+
+  s.displaydata();s.show_no_students();
+
+//   int n;
+
+//   cout<<"Enter no of students u want to enter data for : ";
+
+//   cin>>n;
+
+//   student s[10];
+
+//   for(int i=0;i<n;i++)
+
+//   {
+
+//     //   s[i].getdata();
+
+//     //   cout<<endl;
+
+//     //   s[i].displaydata();
+
+//       s[i].show_no_students();
+
+//   }
+
+  
+
+    
+
+    
+
+//   student s1;
+
+//     {
+
+//       s1.displaydata();
+
+//       s1.show_no_students();
+
+//          {  
+
+//              student s2;
+
+//              s2.show_no_students();
+
+//              { 
+
+//                  student s3;
+
+//                  s3.show_no_students();
+
+                 
+
+//              }
+
+//          } // s3.show_no_students();  throws error since scope of s3 is no there out of this bracket//
+
+//     }  // s2.show_no_students();      --------------------||-----s2------------||---------------------
+
+    return 0;
+
+}
+
