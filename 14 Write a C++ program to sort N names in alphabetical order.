@@ -1,0 +1,37 @@
+#include<iostream>
+#include<string.h>
+#include<stdio.h>
+using namespace std;
+int main()
+{
+        int n;
+        cout<<"enter how many names u want to enter : ";
+        cin>>n;
+        char str[n][20], t[20];
+        int i, j;
+        cout<<"\n Enter Names : \n\n";
+        for(i=0; i<n; i++)
+        {
+                cout<<" ";
+                cin>>str[i];
+        }
+        for(i=0; i<n; i++)
+        {
+                for(j=0; j<n; j++)
+                {
+                        if(strcmp(str[j-1], str[j])>0)
+                        {
+                                strcpy(t, str[j-1]);
+                                strcpy(str[j-1], str[j]);
+                                strcpy(str[j], t);
+                        }
+                }
+        }
+        cout<<"\n Names Sorted in Alphabetical Order : \n\n";
+        for(i=0; i<n; i++)
+        {
+                cout<<" ";
+                cout<<str[i]<<"\n";
+        }
+        return 0;
+}
