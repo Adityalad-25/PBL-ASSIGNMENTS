@@ -1,0 +1,152 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a,b,c,k=0;
+    cout<<"Enter no of students who like pizza : ";
+    cin>>a;
+    cout<<"Enter no of students who like burger : ";
+    cin>>b;
+    c=a+b;
+
+   int A[a],B[b],C[c];
+   cout<<"Enter roll no of students who like pizza: ";
+   for(int i=0;i<a;i++)
+   {
+       cin>>A[i];
+      
+   }
+    cout<<"Enter roll no of students who like burger: ";
+   for(int i=0;i<b;i++)
+   {
+       cin>>B[i];
+   }
+   
+   char ch;
+  do
+  {
+        cout<<"What do you want to perform"<<endl;
+   cout<<"1.Set of customers who like either pizza or burger or both "<<endl;
+   cout<<"2. Set of customers who like both pizza and burger."<<endl;
+   cout<<"3. Set of customers who like only pizza, not burger."<<endl;
+   cout<<"4. Set of customers who like only burger not pizza."<<endl;
+   int t;
+   cin>>t;
+  
+  
+   switch(t)
+   {
+       case 1:
+      for(int i=0;i<a;i++)
+   {
+       C[k]=A[i];
+       k++;
+   }
+   for(int j=0;j<b;j++)
+   {
+        int flag=0;
+       for(int i=0;i<a;i++)
+       {
+           if(B[j]==A[i])
+           {
+               flag=1;
+               break;
+           }
+       }
+       if(flag==0)
+       {
+           C[k]=B[j];
+           k++;
+       }
+       }
+       cout<<"Set of customers who like either pizza or burger or both are : ";
+    for(int i=0;i<k;i++)
+   {
+       cout<<C[i]<<endl;
+   }
+   break;
+   case 2:
+   k=0;
+   for(int j=0;j<b;j++)
+   {
+       
+       for(int i=0;i<a;i++)
+       {
+           if(B[j]==A[i])
+           {
+               C[k]=A[i];
+               k++;
+               break;
+           }
+       }
+       }
+       cout<<"Set of customers who like both pizza and burger: ";
+    for(int i=0;i<k;i++)
+   {
+       cout<<C[i]<<endl;;
+   }
+   break;
+   
+   case 3:
+   k=0;
+      for(int i=0;i<a;i++)
+   {
+        int flag=0;
+       for(int j=0;j<b;j++)
+       {
+           if(A[i]==B[j])
+           {
+               flag=1;
+               break;
+           }
+       }
+       if(flag==0)
+       {
+           C[k]=A[i];
+           k++;
+           break;
+       }
+       }
+      cout<<"Set of customers who like only pizza, not burger: ";
+    for(int i=0;i<k;i++)
+   {
+      cout<<C[i]<<endl;
+   }
+   break;
+
+   case 4:
+   k=0;
+      for(int j=0;j<b;j++)
+   {
+        int flag=0;
+       for(int i=0;i<a;i++)
+       {
+           if(A[i]==B[j])
+           {
+               flag=1;
+               break;
+           }
+       }
+       if(flag==0)
+       {
+           C[k]=B[j];
+           k++;
+           break;
+       }
+       }
+      cout<<"Set of customers who like only burger not pizza: ";
+    for(int i=0;i<k;i++)
+   {
+       cout<<C[i]<<endl;
+   }
+   break;
+}
+  cout<<" \n enter y to continue and n to stop : ";
+   cin>>ch;
+}while(ch!=0);
+    return 0;
+}
+
+
+
