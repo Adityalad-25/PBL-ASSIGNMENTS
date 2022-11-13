@@ -1,0 +1,93 @@
+/******************************************************************************
+Create a base class called 'SHAPE' having-two data members of type double -member function get-data( )to 
+initialize base class data members - pure virtual member function display-area( )to compute and display the 
+area of the geometrical object.
+Derive two specific classes 'TRIANGLE' and 'RECTANGLE' from the base class Using these three 
+classes, design a program that will accept the dimension of a triangle / rectangle interactively and display 
+the area. Implement using C++
+*******************************************************************************/
+#include <iostream>
+using namespace std;
+class SHAPE
+{
+    double a,b;
+ public: 
+        virtual  void get_data()
+          {
+              cin>>a>>b;
+          }
+      virtual  void display_area()=0; //pure virtual function// 
+};
+class rectangle:public SHAPE
+{
+    float l,b;
+ public:
+        //constructor//
+        rectangle()
+        {
+            
+        }
+        rectangle(int a , int c)
+        {
+            l=a;
+            b=c;
+        }
+         void get_data()
+         {
+             cout<<"enter length : ";
+             cin>>l;
+             cout<<"enter breadth : ";
+             cin>>b;
+             
+         }
+         void display_area()
+         {
+             cout<<"area of rectangle is : "<<l*b<<endl;
+         }
+         
+  
+};
+class triangle:public SHAPE
+{
+    float b,h;
+ public:
+        //constructor//
+        triangle()
+        {
+            
+            
+        }
+        triangle(int a , int c)
+        {
+            b=a;
+            h=c;
+        }
+         void get_data()
+         {
+             cout<<"enter length of base of triangle : ";
+             cin>>b;
+             cout<<"enter height of triangle : ";
+             cin>>h;
+             
+         }
+         void display_area()
+         {
+             cout<<"area of triangle is : "<<0.5*b*h<<endl;
+         }
+         
+  
+};
+
+
+int main()
+{
+    SHAPE *s;rectangle r; triangle t;        //rectangle r(2,4); triangle t(2,3);
+    s=&r;
+    s->get_data();
+     s->display_area();
+    s=&t;
+    s->get_data();
+    s->display_area();
+
+    return 0;
+}
